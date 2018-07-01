@@ -39,13 +39,93 @@ A: Changes
 5. Using pseudocode, refactor the code for the following examples. 
 a. 
 FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
-   PRINT "Your total due is: " + subTotal * discountRate + (subTotal * tax)
+   PRINT "Your total due is: " + totalDue
 
    IF paymentType = 'CASH' THEN
        CALL getPayment RETURNING amount
-       PRINT "Change due: " + amount - subTotal * discountRate + (subTotal * tax)
+       PRINT "Change due: " + amount - totalDue
    ELSE paymentType = 'CREDIT CARD' THEN
        CALL getPayment RETURNING amount
-       PRINT "Your credit card has been charged: " + subTotal * discountRate + (subTotal * tax)
-   END IF
+       PRINT "Your credit card has been charged: " + totalDue
+END IF
 END FUNCTION
+
+totalDue = subTotal * discountRate + (subTotal * tax)
+
+b. I don't see that this needs any modification. The function name is written with a verb, meaningful and I understood it at first glance. In fact, as I read through the function it is very clear what's happening throughout. It is all easy to read, understand and follow. If the account is active, and the guest has no outstanding fees, then they are able to check out the book. If the above are not true, then the guest is not allowed to check out the book and proceed. 
+FUNCTION checkoutBook(book, guest)
+ IF guest.accountActive THEN
+     IF NOT(guest.hasOverdueBooks) THEN
+         IF guest.outstandingFees = 0 THEN
+           APPEND book to guest.books
+           SET book.status to "Checked Out"
+           PRINT "Your books have been issued."
+         END IF
+     END IF
+ ELSE
+     PRINT "Unable to check out book."
+ END IF
+END FUNCTION
+
+c. 
+I also don't think this needs any modification. Each function within the BankAccount class is clearly written out, so you can see what each one is executing. 
+CLASS BankAccount
+
+ FUNCTION displayBalance
+    PRINT balance
+ END FUNCTION
+
+ FUNCTION deposit(amount)
+    SET endBalance= balance + amount
+ END FUNCTION
+
+ FUNCTION withdraw(amount)
+     IF balance > amount THEN
+       SET endBalance = balance -amount
+     END
+ END FUNCTION
+
+ FUNCTION creditCardOffer
+     IF NOT(customer.hasCreditCard) THEN
+         CALL offerCreditCard
+     END
+ END FUNCTION
+
+ FUNCTION checkStatus
+     IF NOT(customer.hasCheckingAccount) THEN
+         CALL offerCheckingAccount
+     END
+ END FUNCTION
+
+ ....
+ ....
+ ....
+
+END
+
+6. 
+function perfectSquare(array) {
+const sum = array.reduce((x,y)=>x+y); 
+
+if (sum >0 && Math.sqrt(sum) % 1 ===0) {
+   return Math.sqrt(sum); 
+}
+else {
+ return sum;
+}
+} ; 
+  
+
+7. 
+function findDuplicates (array) {
+  var counts = []; 
+	for (let i = 0; i < array.length; i++) {
+  		if (counts[array[i]] === undefined) {
+    		counts[array[i]]= 1; 
+  		}
+  		else{
+    		return true; 
+  		}
+	}
+  return false; 
+}
