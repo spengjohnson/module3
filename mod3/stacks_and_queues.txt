@@ -1,0 +1,73 @@
+1. What is the main difference between a stack and a queue? 
+
+A: The main difference is the way they prioritize. A Stack uses LIFO and a queue uses FIFO. The stack will use and pop functions. The queue is like a line at a coffee shop or an amusement park, where if you are first in line then you are first to be taken care of. 
+
+2. What are the similarities between stacks and queues? 
+
+A: Stacks and queues both find ways to prioritize requests- while this is a difference between them, it is also a similarity. 
+
+3. For the UNDO option, I would use the stack because of the pop function it provides. This is what you want to do when you are undoing something in MS Word. The pop function helps to remove the topmost element. If you are creating something in MS Word, you are going to undo the most recently added element. For the REDO option, I would use the queue. Because of the FIFO priority, you are able to trace back to the beginning and then re-do your steps again. 
+
+Programing Questions
+1. 
+function reverseString(str) {
+var splitString = str.split(""); 
+var reverseArray = splitString.reverse(); 
+var joinArray =reverseArray.join(""); 
+return joinArray;   
+}
+
+2. 
+var Stack = function() {
+	this.count= 0; 
+	this.storage ={}; 
+}
+
+Stack.prototype.pop= function(){
+	if(this.count ===0) {
+	return undefined; 
+	}
+	this.count--; 
+	var result =this.storage[this.count]; 
+	delete this.storage[this.count]; 
+	return result; 
+}
+
+Stack.prototype.size = function() {
+	return this.count; 
+}
+
+3. 
+class Queue {
+	constructor() {
+	this.queue = []; 
+	}
+
+	length() {
+	return this.queue.length; 
+	}
+	
+	size() {
+	return this.length(); 
+	}
+	
+	enqueue (item) {
+	this.queue.push(item); 
+	}
+	
+	dequeue() {
+	return this.queue.shift(); 
+	} 
+	
+	peek() {
+	return this.queue[0]; 
+	}
+	
+	hasItems() {
+	return !!this.length(); 
+	}
+	
+	isEmpty() {
+	return !this.hasItems(); 
+	} 
+}

@@ -1,0 +1,51 @@
+//ES6 Classes
+
+/* ####Questions
+
+>What is object-oriented programming?
+
+A: JavaScript as a language is object-oriented since almost everything in JavaScript
+can be counted as an object. Objects can have related code and data, which represents
+the information about the item you are trying to model. Data related to the object can be stored neatly inside
+of an object package to make it easy to structor and access. In a way, it is like packaging
+information into tupperware or containers so that they are neatly stored and organized.
+
+>What is a constructor?
+
+A: A constructor is method used in order to create or initialize a new class. There can only
+be one constructor in the class.
+
+>What is the purpose of the keyword super?
+
+A: A super is used in the case of the child of a parent class. It is a keyword that is used
+to call on variables and functions that are within the parent class. Child classes
+can be created with the keyword 'extends'.
+
+>What are classes that do not use the keyword extends called?
+
+A: They are simply classes.
+
+####Code
+Using the Clothes class we previously created, create a shirt class that extends
+the Clothes class. Don't forget the super().
+
+class Clothes {
+	constructor(name, size, price) {
+		this.name = name;
+		this.size = size;
+		this.price = price;
+    }
+	info() {
+		console.log("Here's the clothes info: " + this.name, this.size, this.price);
+    }
+}
+
+class Shirt extends Clothes {
+	info() {
+		super.info();
+		console.log("Are you going to buy this? " + this.name, this.size, this.price);
+    }
+}
+
+var blouse = new Shirt('blouse', 'small', 25);
+blouse.info();
