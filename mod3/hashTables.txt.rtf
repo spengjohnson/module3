@@ -4,7 +4,7 @@
 {\*\expandedcolortbl;;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
 {\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\margl1440\margr1440\vieww15520\viewh9220\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 1. What is a hash table? \
@@ -36,51 +36,92 @@ A: Data should be stored in an object if that data is a static number of distinc
 \
 A: \
 function storeCustomer (name, address, phone) \{\
-	CREATE HashCustomerTable\
 	CREATE HashTablePhones\
-	STORE each word(key) with note into HashCustomerTable and associate it with name and 	address (value)\
 	STORE each phoneNumber(key) within HashTablePhones and associate it with name, 	address\
 	CHECK whether HashCustomerTable contains phoneNumber to look up customer. \
 \}\
 \
-function HashCustomerTable () \{\
-	this.name = \'93name\'94; \
-	this.address = \'93address\'94; \
-	this.phone = phone; \
+\
+class HashTable \{\
+  constructor()\{\
+    var customerList =[]; \
+  \}\
+  \
+  hash(hashKey) \{\
+    var hash = require('string-hash'); \
+    return hash; \
+  \}\
+\
+  get (hashKey) \{\
+    return this.customerList[hash(hashKey)]; \
+  \}\
+  set(hashKey, customer) \{\
+    this.customerList[hash(hashKey)] = customer; \
+  \}\
 \}\
 \
-HashTable.prototype.set = function (key, value) \{\
-	let hashKey = hashCode (key, phone); \
-		if (!this.phone[hashKey]) \{\
-			let customer =\{\}; \
-			customer[phone] = value; \
-			this.phone[hashKey] = customer; \
-		\} else \{\
-			this.phone[hashKey][key]= value; \
-		\}\
-	\}; \
+class Customer \{\
+  constructor(name, address, phone) \{\
+    this.name = name; \
+    this.address = address; \
+    this.phone= phone; \
+  \}\
+\}\
 \
 7. Build a system that allows a store owner to track their store\'92s inventory using a hash table for storage. \
 \
 A: \
-function storeInventory (item, quantity, itemNumber) \{\
-	let newInventory = new Inventory (); \
-		let item = this.item; \
-		let quantity = this.quantity; \
-		let itemNumber = this.itemNumber; \
-	inventoryList = []; \
-	inventoryList = inventoryList.push(newInventory); \
+class HashTable \{\
+  constructor()\{\
+  var inventoryList =[]; \
+  \}\
+\
+  hash(key) \{\
+    var hash = require('string-hash')\
+  \}\
+  get(key)\{\
+    return hashTable[hash(key)]; \
+  \}\
+\
+  set(key, inventoryList)\{\
+    this.inventoryList[hash(key)] = storeInventory; \
+  \}\
 \}\
 \
-8. Build a sytem that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store necessary data. \
+function storeInventory\{\
+  constructor(item,itemNumber,quantity)\{\
+    this.item= item; \
+    this.itemNumber = itemNumber; \
+    this.quantity = quantity; \
+  \}\
+\}\
+\
+8. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store necessary data. \
 \
 A: \
+class HashTable \{\
+  constructor()\{\
+    var newspaperHash =[]; \
+  \}\
+  \
+  hash(hashKey) \{\
+    var hash = require('string-hash'); \
+    return hash; \
+  \}\
 \
-function storeNewspaper (publisher, publicationDate) \{\
-	let newspaper = new Newspaper (); \
-		let publisher = this.publisher; \
-		let publicationDate = this.publicationDate; \
-		let name = this.name; \
-	if (\
+  get (hashKey) \{\
+    return this.newspaperHash[hash(hashKey)]; \
+  \}\
+  set(hashKey, newsaper) \{\
+    this.newspaperHash[hash(hashKey)] = newspaper; \
+  \}\
 \}\
+\
+class Newspaper \{\
+  constructor(publisher, pubDate) \{\
+    this.publisher = publisher; \
+    this.pubDate = pubDate;  \
+  \}\
+\}\
+\
 }
