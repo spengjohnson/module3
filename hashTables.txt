@@ -1,0 +1,127 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww15520\viewh9220\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1. What is a hash table? \
+\
+A: A hash table is a type of data structure that stores each value by linking it to a key, like key-value pairs in JavaScript objects. It is a way to help organize data that contains a number of consistently formatted values. \
+\
+2. What is hashing? \
+\
+A: Hashing helps convert a string into an integer. Hash tables help handle this kind of conversion. \
+\
+3. How does a hash table store data? \
+\
+A: A hash table contains keys, which can have data of any type (strings or integers), but strings are the most common. The strings however need to be converted into numbers. \
+\
+4. How are hash tables and objects different? \
+\
+A: Data should be stored in an object if that data is a static number of distinct values of different types. Objects can hold potentially different types of data bundled together. Hash tables are best used when data contains a variable number of formatted values, like several employees along with their departments, employee ID, etc. Like arrays, hash tables are used as collections of similar data. \
+\
+5. Determine whether you would use a hash table or an object to store each of the following pieces of data. \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}A list of pets and their unique names: HASH TABLE. \
+{\listtext	\uc0\u8226 	}The name, age, and birthday of your best friend: OBJECT\
+{\listtext	\uc0\u8226 	}The name and location of every company in a given city: HASH TABLE\
+{\listtext	\uc0\u8226 	}All of the books checked out from a library by a particular individual: OBJECT\
+{\listtext	\uc0\u8226 	}The primary and secondary phone numbers for a contact: OBJECT \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+6. Build a system that allows a sales associate to enter a customer\'92s name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table. \
+\
+A: \
+function storeCustomer (name, address, phone) \{\
+	CREATE HashTablePhones\
+	STORE each phoneNumber(key) within HashTablePhones and associate it with name, 	address\
+	CHECK whether HashCustomerTable contains phoneNumber to look up customer. \
+\}\
+\
+\
+class HashTable \{\
+  constructor()\{\
+    var customerList =[]; \
+  \}\
+  \
+  hash(hashKey) \{\
+    var hash = require('string-hash'); \
+    return hash; \
+  \}\
+\
+  get (hashKey) \{\
+    return this.customerList[hash(hashKey)]; \
+  \}\
+  set(hashKey, customer) \{\
+    this.customerList[hash(hashKey)] = customer; \
+  \}\
+\}\
+\
+class Customer \{\
+  constructor(name, address, phone) \{\
+    this.name = name; \
+    this.address = address; \
+    this.phone= phone; \
+  \}\
+\}\
+\
+7. Build a system that allows a store owner to track their store\'92s inventory using a hash table for storage. \
+\
+A: \
+class HashTable \{\
+  constructor()\{\
+  var inventoryList =[]; \
+  \}\
+\
+  hash(key) \{\
+    var hash = require('string-hash')\
+  \}\
+  get(key)\{\
+    return hashTable[hash(key)]; \
+  \}\
+\
+  set(key, inventoryList)\{\
+    this.inventoryList[hash(key)] = storeInventory; \
+  \}\
+\}\
+\
+function storeInventory\{\
+  constructor(item,itemNumber,quantity)\{\
+    this.item= item; \
+    this.itemNumber = itemNumber; \
+    this.quantity = quantity; \
+  \}\
+\}\
+\
+8. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store necessary data. \
+\
+A: \
+class HashTable \{\
+  constructor()\{\
+    var newspaperHash =[]; \
+  \}\
+  \
+  hash(hashKey) \{\
+    var hash = require('string-hash'); \
+    return hash; \
+  \}\
+\
+  get (hashKey) \{\
+    return this.newspaperHash[hash(hashKey)]; \
+  \}\
+  set(hashKey, newsaper) \{\
+    this.newspaperHash[hash(hashKey)] = newspaper; \
+  \}\
+\}\
+\
+class Newspaper \{\
+  constructor(publisher, pubDate) \{\
+    this.publisher = publisher; \
+    this.pubDate = pubDate;  \
+  \}\
+\}\
+\
+}

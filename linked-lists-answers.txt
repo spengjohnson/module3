@@ -1,0 +1,75 @@
+1. What are some pros and cons of using linked lists instead of arrays? 
+
+A: Using linked lists allow your list to grow to immense sizes if needed. It helps quickly store elements and never has any empty placeholders. Each node is independent in memory, so the operating system can use any available location to store it. On the other hand, linked lists doesn't allow for efficient accessing of elements since each node can exist anywhere within the list. Elements must be accessed from the head (1st node), so it makes searching for an element very slow. In an array, any element in the list is easily accessed via the index. 
+
+2. Come up with a real world example of a linked list. 
+
+A: A real world example of a linked list would be a photo album that you can flip through online. Each photo contains the node/data for the next photo to come. 
+
+Programming Questions. 
+
+1. Find the bug and fix the code. 
+LinkedList.prototype.push = function(element) {
+ SET node = {
+   value: element,
+   next: null
+ }
+
+ IF the head node does not exist
+   THEN SET head to node
+ ELSE
+   SET current node to head
+   SET current.next to node
+ }
+}
+
+A: LinkedList.prototype.push = function(element) {
+    node = {
+    value: element, 
+    next: null 
+    }
+    //IF the head node does not exist
+    if (headNode == null){
+      //  then SET head to currentNode
+      this.head =currentNode; 
+      this._length++; 
+      return currentNode; 
+    }
+    while (currentNode.next){ //SET currentNode to Head
+      this.currentNode = currentNode.next; 
+    }
+     currentNode.next = node;
+     this._length++; 
+     return node; 
+    
+}; 
+
+The issue in the code is the SET current.next to node, as it's not very specific. Additionally, the else should just have one condition happening, which would be setting the currentNode to the Head. The code should just keep running until we hit the end of the list, and the current node pointing to the next one, will be the newNode. 
+
+2. Given an unsorted singly linked list, remove all duplicates from the linked list. 
+
+function removeDuplicates (linkedList) {
+	WHILE nextNode !== null;	
+	IF currentNode === nextNode
+	START at currentNode
+		currentNode->nextNode
+		nextNode->proceedingNode
+	CHANGE TO currentNode->proceedingNode			
+}
+
+
+3. Given an unsorted singly linked list, reverse it. 
+
+function reverseList (linkedList) 
+	linkedListNode start = linkedList.head; 
+	linkedListNode temp = null; 
+//loop through until null is found 
+WHILE start !==null 
+//switch Next and Previous nodes 
+	temp= start.Next
+	start.Next = start.Previous; 
+	start.previous = temp
+//point head to last node 
+IF start.Previous == null 
+	linkedList.head = start; 
+start = start.Previous 

@@ -1,0 +1,131 @@
+1. In your own words, explain what clean code is and why it is important. 
+
+A: Clean code is important for many reasons. The biggest thing that I think of when it comes to clean code, is that it is READABLE for other developers. Someone else can pick and where you left off without having to ask a bunch of questions or sort through what you are trying to accomplish in the code. Clean code is also not redundant, and is as concise as it can be (DRY code). It's kind of like having an easy-to-understand file system, where any front desk receptionist can understand the organization method and all the labels that are used to contain everything. 
+
+2. Toyota article
+
+A: Blood glucose meters use computers in order to help read a person's blood sugar. People use these devices in order to manage their chronic disease, and make decisions based on those readings. If for some reason the code in the meter was so inaccurate that it didn't provide accurate readings, it would definitely lead to people making bad decisions about how to handle their blood sugars. For example, if it read that it was too low, then an individual might treat a "low" blood sugar for no reason. On the other hand, if a person has a high blood sugar, it might cause them to take too much insulin, or cause panic and go to an emergency room. 
+
+3. Code: 
+FUNCTION doSomething(x, y)               // Creating a new function
+ IF y = "F" THEN               // Check if y is equal "F"
+ SET z to (x−32) * (5/9)       // Formula to convert degrees fahrenheit to celsius
+ PRINT z                       // Print result
+ ELSE { THEN          // If y not equal to "F", check if equal to "C"
+ SET z to x * 1.8000 + 32.00 }  // Formula to convert degrees celsius to fahrenheit
+ PRINT z                       // Print result
+ END IF
+END FUNCTION
+
+
+A: I've added some notes above to refactor the code. I think that the function name could use a noun, vs. just having it be called "do". The "do" name alone is not meaningful enough for someone to know what it's GOING to do. I think that this could also just be a simple IF ELSE, vs. having an "else if" at the end. I think what would also help is if the parameters passed through were better defined.
+
+4. Code: 
+FUNCTION calcPercent(sum, total)
+ IF NOT(total = 0) THEN
+     SET percentage to sum / total * 100
+ ELSE
+   PRINT "Sorry, cannot divide by 0"
+ END IF
+
+ PRINT percentage
+END FUNCTION
+
+A: Changes
+	- I would call the function calculatePercent instead of the abbreviation. 
+	- IF NOT (total=0) should just be IF (total = 0) as that isn't proper logic or syntax. 
+	
+
+5. Using pseudocode, refactor the code for the following examples. 
+a. 
+FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
+   PRINT "Your total due is: " + totalDue
+
+   IF paymentType = 'CASH' THEN
+       CALL getPayment RETURNING amount
+       PRINT "Change due: " + amount - totalDue
+   ELSE paymentType = 'CREDIT CARD' THEN
+       CALL getPayment RETURNING amount
+       PRINT "Your credit card has been charged: " + totalDue
+END IF
+END FUNCTION
+
+totalDue = subTotal * discountRate + (subTotal * tax)
+
+b. I don't see that this needs any modification. The function name is written with a verb, meaningful and I understood it at first glance. In fact, as I read through the function it is very clear what's happening throughout. It is all easy to read, understand and follow. If the account is active, and the guest has no outstanding fees, then they are able to check out the book. If the above are not true, then the guest is not allowed to check out the book and proceed. 
+FUNCTION checkoutBook(book, guest)
+ IF guest.accountActive THEN
+     IF NOT(guest.hasOverdueBooks) THEN
+         IF guest.outstandingFees = 0 THEN
+           APPEND book to guest.books
+           SET book.status to "Checked Out"
+           PRINT "Your books have been issued."
+         END IF
+     END IF
+ ELSE
+     PRINT "Unable to check out book."
+ END IF
+END FUNCTION
+
+c. 
+I also don't think this needs any modification. Each function within the BankAccount class is clearly written out, so you can see what each one is executing. 
+CLASS BankAccount
+
+ FUNCTION displayBalance
+    PRINT balance
+ END FUNCTION
+
+ FUNCTION deposit(amount)
+    SET endBalance= balance + amount
+ END FUNCTION
+
+ FUNCTION withdraw(amount)
+     IF balance > amount THEN
+       SET endBalance = balance -amount
+     END
+ END FUNCTION
+
+ FUNCTION creditCardOffer
+     IF NOT(customer.hasCreditCard) THEN
+         CALL offerCreditCard
+     END
+ END FUNCTION
+
+ FUNCTION checkStatus
+     IF NOT(customer.hasCheckingAccount) THEN
+         CALL offerCheckingAccount
+     END
+ END FUNCTION
+
+ ....
+ ....
+ ....
+
+END
+
+6. 
+function perfectSquare(array) {
+const sum = array.reduce((x,y)=>x+y); 
+
+if (sum >0 && Math.sqrt(sum) % 1 ===0) {
+   return Math.sqrt(sum); 
+}
+else {
+ return sum;
+}
+} ; 
+  
+
+7. 
+function findDuplicates (array) {
+  var counts = []; 
+	for (let i = 0; i < array.length; i++) {
+  		if (counts[array[i]] === undefined) {
+    		counts[array[i]]= 1; 
+  		}
+  		else{
+    		return true; 
+  		}
+	}
+  return false; 
+}
