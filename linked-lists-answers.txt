@@ -48,20 +48,22 @@ The issue in the code is the SET current.next to node, as it's not very specific
 
 2. Given an unsorted singly linked list, remove all duplicates from the linked list. 
 
-function removeDuplicates (linkedList) {
-	WHILE nextNode !== null;	
-	IF currentNode === nextNode
-	START at currentNode
-		currentNode->nextNode
-		nextNode->proceedingNode
-	CHANGE TO currentNode->proceedingNode			
-}
+	function removeDuplicates (linkedList) 
+	let seenNode = {
+		//object tracking if newNode is in seenNode}
+	while nextNode !==null //while nextNode is equal to something
+		IF (seenNode===newNode) //if the node we are looking at is equal to the new node, delete it 
+			delete newNode
+		ELSE 
+			newNode= nextNode
+		END
+
 
 
 3. Given an unsorted singly linked list, reverse it. 
 
 function reverseList (linkedList) 
-	linkedListNode start = linkedList.head; 
+	linkedListNode previous = linkedList; 
 	linkedListNode temp = null; 
 //loop through until null is found 
 WHILE start !==null 
@@ -73,3 +75,24 @@ WHILE start !==null
 IF start.Previous == null 
 	linkedList.head = start; 
 start = start.Previous 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
