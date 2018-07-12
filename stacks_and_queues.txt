@@ -10,13 +10,40 @@ A: Stacks and queues both find ways to prioritize requests- while this is a diff
 
 Programing Questions
 1. 
-function reverseString(str) {
-var splitString = str.split(""); 
-var reverseArray = splitString.reverse(); 
-var joinArray =reverseArray.join(""); 
-return joinArray;   
+function reverse(string) {
+  //init new stack
+   var stack = function(){
+      this.count= 0; 
+      this.storage= {};     
+      this.push = function(){
+        storage[count]=value; 
+        count++; 
+      };  
+      this.pop= function(){
+        if (this.count===0){
+          return undefined; 
+        }
+        this.count--; 
+        var result = this.storage[this.count]; 
+        delete this.storage[this.count]; 
+        return result; 
+      }; 
+   }
+   //FOR each character in original CALL stack.push WITH character
+   while (stack.count !=0) {
+     stack.push(); 
+   }
+     while (stack.count !==0){
+      for (i=0; i<string.length; i--) {
+       newString += stack.pop();
+      }
+    }
+  return newString; 
 }
-
+  
+  
+ 
+--------------------------------------------------------------------------
 2. 
 var Stack = function() {
 	this.count= 0; 
