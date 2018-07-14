@@ -1,0 +1,73 @@
+1. What is a binary search tree and what makes it unique to other trees? 
+
+A: A binary search tree is a type of graph that is a-cyclic. In a binary search tree, you can perform searches in different ways, which makes it unique because of its structure. Searches can be performed via breadth-first, where you travel by level order, from 0 to the last, basically row by row moving downward until you find what you're looking for. In the depth-first search, there are 3 strategies that can be used - preorder, ignorer, and postorder searches. The left subtree can be searched first, or the root can be first. In this type of search, you are moving around the graph by finishing off the search in the subtree you're in (left or right), or start off at the root. For example, in the preorder search, it starts at the root, then to the left subtree, and then the right. 
+
+2. What is a heuristic? 
+
+A: It is a "best guess" when there are infinite possible answers. If the best guess works well most of the time, then it is considered to be "good enough." 
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics? 
+
+A: Heuristics requires the appropriate experience and knowledge from someone in order to apply it effectively. Since heuristics is ultimately a "best guess", it's not going to be 100%, so multiple aggregates should be used in order to get a more definitive answer. Additionally, trained usability experts can be hard to find an expensive. 
+
+4. What is the difference between a depth-first search and a breadth-first search? 
+
+A: As mentioned above related to the binary tree, the searches are different because of the order in which you look at the nodes. In a breadth-first search, you are searching from root to the bottom of the tree (moving downward), row by row. In the depth-first search, you are ultimately looking at (for example), left subtree first in its entirety, then the root, and then move to the right subtree. Or, you could start with the root, move to the left subtree, and then the right subtree. Travels down a single branch in search of the desired element. 
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is. 
+
+A: An undirected graph on its own is one where the direction is ambiguous, and doesn't start at either node; you are simply at a point that connects the two. An a-cyclic graph is one that is not circular, or doesn't loop around- a linked list is an example of this. An unweighted graph is one that doesn't assign the cost of travel between the nodes. An example that I think encompasses all 3 of these is a binary tree, since it isn't looped, not necessarily weighted, and can be ambiguous in terms of direction. 
+
+6. What kind of graph is a binary search tree? 
+
+A: Undirected, a-cyclic, unweighted. 
+-------------------------------------------------------
+Programming Questions- describe in words how you could solve the problem and then do so. 
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree. 
+
+//create a Node class 
+class Node {
+  constructor(data) {
+    this.data = data; 
+    this.left = null; 
+    this.right= null; 
+  }
+}
+
+//create binary search tree class
+class binaryTree {
+  constructor() {
+    //root of binary search tree 
+    this.root= null; 
+  }
+    findValue(node,data) {
+    //if tree is empty, then return null 
+    if (node ===null) {
+      return null; 
+    }
+      //if data is < node, move to left subtree 
+    else if (data < node.data) {
+      return this.search(node.left, data);
+    }
+    else if (data > node.data) {
+      return this.findValue(node.right,data); 
+    }
+      //if data = node data, return node 
+    else {
+      return node; 
+    } 
+  } 
+}
+
+
+
+2. Given a Binary Search Tree and 2 nodes n1 and n2, write a function that finds the distance between the two nodes. 
+
+function findDistance (root,n1,n2) {
+	//lowest common ancestor of nodes 
+	lcaV= lca(root, n1, n2)
+		distance1= levelOfNode (lcaV, n1, 0)
+		distance2= levelOfNode (lcaV,n2,0)
+		return distance1 + distance2
+}
