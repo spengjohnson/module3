@@ -1,0 +1,39 @@
+1. Using proper pseudocode, describe the following primitive algorithms: 
+- Making coffee 
+	FUNCTION makeCoffee {
+		FILL coffee pot with water 
+		POUR into coffeeMaker 
+		MEASURE coffee grounds 
+		ADD coffee grounds to coffeeMaker's filter 	
+		START coffeeMaker 
+		WAIT until coffeeMaker beeps 
+	END 
+	}
+- Washing dishes
+	FUNCTION wash {
+		POUR soup into sink with dirty dishes 
+		FILL sink with water 	
+		USE SPONGE to scrub each dirty dish	
+		RINSE 
+		Let dish dry in dish rack 
+	END 
+	}
+- A choice of your own- scramble eggs	
+	FUNCTION scrambleEggs {
+		HEAT pan with oil or butter 
+		CRACK two eggs into a bowl 
+		ADD salt & pepper 	
+		BEAT eggs with fork 
+		COOK eggs using spatula until done
+	END 
+	}
+
+2. Name 3 companies who created an algorithm that made them successful. 
+
+UPS applied telematics and algorithms to help make deliveries more efficient. It saves its drivers 85 million miles/year. 
+
+Netflix uses predictive analytics in order to gauge what shows will be most successful with their subscribers. They use and have a lot of data on what people like to watch with their service. 
+
+Match.com uses an algorithm to predict possible matches. They use the stated user preferences but also the browsing activity and patterns of each person. 
+
+3. An algorithm is efficient when it can get the issue resolved or reach the goal within a set time frame without extra steps. It should be done as FAST as it can be. It is inefficient when it requires extra steps, goes off on tangents, or diverts from the original goal/issue- these cause an algorithm to take up extra time.  	
