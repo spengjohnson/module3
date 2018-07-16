@@ -1,0 +1,66 @@
+1. What is time complexity and what is its relation to algorithms? 
+
+Time complexity is used to describe how efficient an algorithm is. When we are talking about efficiency of algorithms, we are referring to the time it takes/speed to complete the goal. 
+
+2. What is runtime? 
+
+Runtime is often used in place of time complexity, and refers to the physical duration of the algorithm. 
+
+3. How is the runtime of algorithm calculated? 
+
+The runtime of an algorithm can be calculated if you understand what machine instructions are executed. You add up how many instructions the algorithm will complete as a function of the size of input, and then you simplify the expression to the largest term, and drop any constraints. 
+
+4. Name the 6 types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least. Google another algorithmic growth rate not covered and place it in the correct spot on your list. 
+
+	1. constant growth rate 
+	2. Logarithmic Growth Rate 
+	3. Linear Growth Rate 
+	4. Log Linear Growth Rate 
+	5. Quadratic Growth Rate 
+	6. Cubic Growth Rate ***GOOGLED!
+	7. Exponential Growth Rate 
+
+5. Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation. 
+
+Exponential growth- a great example of this is bacteria. It takes a short amount of time to grow 100 bacteria, for example. They can reproduce very quickly, so in an hour they would turn into 200 at the 2nd hour, 400 at the 3rd hour, 800 at the 4th hour, and so on. 
+
+6. Determine the time complexity of the following snippet of code. It is commonly known as a linear search. 
+FUNCTION linearSearch(array, target)
+ FOR each number in the array
+   IF number = target THEN
+     RETURN true
+   END IF
+ END FOR
+ RETURN false
+END FUNCTION
+
+This function will run as many times as the array has elements - it will run until the array element matches the target, so will count this as n. The return false piece of it is a constant, 1. The time complexity is therefore broken down to n + 1, or 0(n). 
+
+7. Determine the time complexity of the following snippet of code. 
+
+FUNCTION foo(array)
+ FOR each number in the array
+   FOR each number in the array
+     print "Hello"
+   END FOR
+ END FOR
+END FUNCTION
+
+There is a nested for loop here, so time complexity is 0(n^2). 
+
+8. Determine the time complexity of the following snippet of code.
+FUNCTION fibonacci(number)
+ IF number < 1 THEN
+   ERROR
+ ELSE IF number = 1 or 2 THEN
+   RETURN 1
+ ELSE
+   CALL fibonacci WITH number - 2 RETURNING twoBack
+   CALL fibonacci WITH number - 1 RETURNING oneBack
+   RETURN twoBack + oneBack
+ END IF
+END FUNCTION
+
+Time complexity = 0(2^n)
+
+9. Which one is the most efficient? #6 is the most efficient with the time complexity at 0(n), which has a linear growth rate.  
