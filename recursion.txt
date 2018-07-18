@@ -1,0 +1,66 @@
+1. Define and compare recursion and iteration. 
+Recursion is a process performed by repeating the same steps until it is complete. The nature of recursion is to break down a problem into smaller problems. Iteration is best used when problems are solved utilizing loops. Recursive solutions do have their downfalls- they run slower, and are more subject to system limitations. Iterative solutions can be harder to implement in some cases.  Recursion should be used where iterative solutions are not possible. 
+
+2. Name five algorithms that are commonly implemented by recursion. 
+
+Fibonacci sequence, factorial of a number, greatest common divisor, recursive binary search, linked list print. 
+
+3. When should you use recursion and when should you avoid recursion? 
+
+Recursion is best used when you have a base case to stop the function from running indefinitely. A function can have more than one base case, but it depends on the algorithm. You never want to use recursion if you don't have at least one base case, otherwise it will NEVER end and will be like writing and running an infinite loop. 
+Also if there is a way to use iteration instead, it would be better since iteration is better understood and more efficient. 
+
+4. Compare the recursive and iterative solutions to the 3 algorithms from the checkpoint (Factorial, Maximum, and Fibonacci). What is similar and what is different? 
+
+For each algorithm, it seems like there is a more efficient and easy to understand option. In Maximum, for example, the recursive solution can be quite long and removes one element from the array with each call, then has to find the biggest number in each of those calls/groups. In the iterative solution, we are simply taking one number and comparing it to the currentMaximum until the end is reached. The biggest thing that is similar in all of these, is that the end result is the same, but the process can be more or less efficient with the choices of iterative or recursive solutions. 
+
+5. Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection. 
+
+FUNCTION numberInCollection (itemNumber) 
+	//must have something to count
+	IF itemNumber < 1 
+		then ERROR 
+	//as long as there is more than 1 item, the function can proceed
+	ELSE IF itemNumber >= 1 THEN 		
+		RETURN itemNumber + otherItems
+		SET numberInCollection = itemNumber + otherItems 
+	ELSE 
+		RETURN numberInCollection
+	END IF 
+END FUNCTION  
+	
+
+6. A palindrome is a word or phrase whose spelling is the same either direction (e.g. racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome. 
+
+FUNCTION isPalindrome (string) 
+	IF string === null; or if string.length = 1
+		RETURN true; 
+	ELSE IF 
+		first letter of string !== last letter of string 
+		RETURN false; 
+	ELSE IF 
+		first letter of string === last letter of string
+		slice first and last letters 
+		COMPARE first and last letters of newly sliced string & if they are the 		same through the whole string, THEN
+		RETURN true; 
+
+
+7. Laura and Xander are going door to door around their block looking for their lost cat. Write a recursive algorithm showing one way they can visit every house on their block exactly once. 
+
+FUNCTION findCat (houses) 
+	IF cat is at house 
+		THEN return home 
+	ELSE IF 
+		MOVE CLOCKWISE around the block to each HOUSE until return home or cat is 		at house 	
+	ELSE
+		RETURN "cat not found :("
+	END IF 
+END FUNCTION 
+
+
+
+	
+		
+
+
+7. 
