@@ -1,0 +1,57 @@
+1. What is a real-life scenario that uses linear search? 
+
+I think of store inventory when I think of a linear search, which can search an unsorted collection, just to see if an item is available in a store for example. I know that I've called a furniture store to ask if a patio table was available at a specific store recently, and I think a linear search can be used to be able to tell a customer if it is  in their store or not. 
+
+2. What is a real-life scenario that uses binary search? 
+
+I think of a library search when thinking about a binary search. In a library, everything is sorted and organized really well, and you might go into a library looking for a particular book. You will search for the unique number assigned to it, and then search the isles based on that number. Within the library, you can go higher or lower depending on the numbers you have to look for. 
+
+3. Given the alphabetically sorted collection in this checkpoint how many iterations would it take to find the value G using linear search? 
+
+It would take 7 iterations to find G in this sorted collection of letters. We would need to take the target (G) and compare it to each alphabet letter, starting at A until we reach G, which is at the end. If we changed the code in JavaScript however, we could force the linear search to move backwards and start at the end, and then there would only be 1 iteration. 
+
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?  
+
+It would take 3 iterations just like it did when searching for E. At the 3rd iteration, we would find that G > F (the new mid), and then you could eliminate F & E based on this, and we would find G. 
+
+5. Given and unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning. 
+
+If the collection is unsorted, then I would choose linear search because that works in unsorted collections, whereas a binary search doesn't work at all unless the collection is sorted. The divide and conquer method would be best since the collection is so large, but since it's not sorted that would not work very well. In an ideal world, we would be able to sort the collection first, and then apply a binary search. This would be MOST efficient. 
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning. 
+
+Since this collection is sorted, then a binary search would be most efficient and quick. Binary searches only work on sorted collections. Since this is a large number in a collection, binary search would work great. 
+
+-------------------------------------------------
+
+Programming assignment 
+
+1. You and a friend have set a wager to see who can find the word "Albatross" in the dictionary the fastest. Write a program to allow you to win the bet. 
+
+FUNCTION findWord (wordsInDict, target)
+	SET low = lowIndex 
+	SET high = lastIndex 
+	WHILE low <= high 
+		SET mid to (low + high)/2
+		IF wordsInDict[mid] > target THEN
+			SET low to mid - 1 
+		ELSE IF wordsInDict[mid] < target THEN 
+			SET low to mid + 1 
+		ELSE 
+			RETURN mid 
+		END IF
+	END WHILE
+	RETURN NOT FOUND
+END FUNCTION 
+		
+2. You work at a pet store and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish. 
+
+FUNCTION getSpottedFish 
+	FOR EACH item in tank
+		IF fish = spotted && white THEN 
+			RETURN 
+		END IF 
+	END FOR 
+	RETURN NOT FOUND
+	
+	
