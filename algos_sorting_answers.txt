@@ -1,0 +1,46 @@
+1. Write the pseudocode for bubble sort. 
+
+FUNCTION bubbleSort(collection) 
+	REPEAT 	
+		SET swapped = false 
+		FOR i = 1st INDEX of collection to the lastIndex of collection -1 
+			IF collection[i] > collection[i+1] THEN
+				SET temp = collection[i]
+				SET collection[i] = collection[i+1] 
+				SET collection[i+1] = temp 
+				SET swapped = true
+			END IF 
+		END FOR
+	UNTIL SWAPPED IS FALSE 
+	RETURN COLLECTION
+END FUNCTION 
+
+2. Write the pseudocode for quick sort. 
+
+FUNCTION quickSort(collection) 
+	CHOOSE PIVOT in collection 
+	itemFromLeft = first item from left LARGER than the PIVOT
+	itemFromRight = first item from right SMALLER THAN the PIVOT 
+	//get pivot out of the way
+	SWAP pivot with lastItemInCollection
+		//loop through the collection and compare first item from left or right that is larger than or smaller than pivot, and swap them
+		FOR EACH item in collection 	
+			IF  first itemFromLeft LARGER than the PIVOT 
+			IF first itemFromRight SMALLER than the PIVOT
+				SWAP itemFromLeft with itemFromRight
+			//this marks when you are done swapping 
+			UNTIL itemFromLeft[i] > itemFromRight[i] 
+			END IF 
+		CALL quickSort(smallerCollection) 
+		UNTIL sorted //cannot swap anymore 
+END FUNCTION 
+
+3. Identify why merge sort and quick sort are much more efficient than the others. 
+
+Both merge and quick sort have time complexities of O(n log n) and are recursive. Merge sort accomplishes the goal of sorting more efficiently than insertion or selection sort because it breaks down the process in to 2 steps- the collection of items is broken into sub-collections, sorted amongst those, and then the collections are merged together until sorted as a whole collection. Quick sort is also like a "divide and conquer" type of algorithm, where the collection can be broken into sub-collections, and the function iterates through each item once again. 
+
+4. Research bucket sort and explain how it works. What is the ideal input for bucket sort? 
+
+Bucket sort distributes the elements of an array into a number of buckets. Then each bucket can be sorted individually using a different sorting algorithm or recursively by applying an actual sorting algorithm, like insertion sort. The final step is to take the elements out and join them together to get the final sorted collection. The ideal input for bucket sort is an array. 
+	
+	
