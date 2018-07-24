@@ -16,51 +16,65 @@ For each algorithm, it seems like there is a more efficient and easy to understa
 
 5. Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection. 
 
-FUNCTION numberInCollection (itemNumber) 
+function numberInCollection (itemNumber) 
 	//must have something to count
-	IF itemNumber < 1 
-		then ERROR 
+	if (itemNumber < 1){ 
+		return -1;  
+	}
 	//as long as there is more than 1 item, the function can proceed
-	ELSE IF itemNumber >= 1 THEN 		
-		RETURN itemNumber + otherItems
-		SET numberInCollection = itemNumber + otherItems 
-	ELSE 
-		RETURN numberInCollection
-	END IF 
-END FUNCTION  
+	else if (itemNumber >= 1) {
+		let otherItems = itemNumber++		
+		return itemNumber + otherItems
+		let numberInCollection = itemNumber + otherItems
+	}
+	else {
+		return numberInCollection; 
+	}
 	
 
 6. A palindrome is a word or phrase whose spelling is the same either direction (e.g. racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome. 
 
-FUNCTION isPalindrome (string) 
-	IF string === null; or if string.length = 1
-		RETURN true; 
-	ELSE IF 
-		first letter of string !== last letter of string 
-		RETURN false; 
-	ELSE IF 
-		first letter of string === last letter of string
-		slice first and last letters 
-		COMPARE first and last letters of newly sliced string & if they are the 		same through the whole string, THEN
-		RETURN true; 
+function isPalindrome (string) {
+	if (string.length <= 1){
+		return true; 
+  }
+	else if (string.charAt(0) !== string.charAt(string.length-1)) {
+		return false; 
+  }
+	else {
+    if(string.charAt(0) === string.charAt(string.length-1)) {
+    let slicedString= string.slice(1,-1); 
+      console.log(slicedString); 
+		return isPalindrome(slicedString); 
+    }	
+		return true; 
+  }
+}
 
 
 7. Laura and Xander are going door to door around their block looking for their lost cat. Write a recursive algorithm showing one way they can visit every house on their block exactly once. 
 
-FUNCTION findCat (houses) 
-	IF cat is at house 
-		THEN return home 
-	ELSE IF 
-		MOVE CLOCKWISE around the block to each HOUSE until return home or cat is 		at house 	
-	ELSE
-		RETURN "cat not found :("
-	END IF 
-END FUNCTION 
+const housesOnBlock = [{isCatHere: false},{isCatHere: false},{isCatHere: false},{isCatHere: true},{isCatHere: false},{isCatHere: false},{isCatHere: false},{isCatHere: false},{isCatHere: false},{isCatHere: false}];
+
+function findCat (houses) {
+  house= houses.pop(); 
+  //if cat is in the house, return true
+	if (house.isCatHere){
+    return true; 
+  }	 
+  //if there is at least one more house to check, return the result 
+	else {
+    		if (houses.length > 0){
+     		return findCat(houses); 
+    		}
+   		 return false; 
+  	}
+  }
+			
+		
 
 
 
 	
 		
 
-
-7. 
