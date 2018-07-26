@@ -16,20 +16,17 @@ For each algorithm, it seems like there is a more efficient and easy to understa
 
 5. Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection. 
 
-function numberInCollection (itemNumber) 
-	//must have something to count
-	if (itemNumber < 1){ 
-		return -1;  
-	}
-	//as long as there is more than 1 item, the function can proceed
-	else if (itemNumber >= 1) {
-		let otherItems = itemNumber++		
-		return itemNumber + otherItems
-		let numberInCollection = itemNumber + otherItems
-	}
-	else {
-		return numberInCollection; 
-	}
+function countElements(array){
+  if(array.length){
+    if(typeof array[0] === "object"){
+      return countElements(array[0]) + countElements(array.slice(1));
+    } else {
+      return 1 +countElements(array.slice(1));
+    }
+  } else {
+    return 0;
+  }
+}
 	
 
 6. A palindrome is a word or phrase whose spelling is the same either direction (e.g. racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome. 
